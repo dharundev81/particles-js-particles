@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <style>
+            html,body {
+            margin: 0;
+            padding: 0;
+            }
+
+            .background {
+            background-color: black;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            }
+            .container{
+                float: left;
+                height:500px;
+                width: 500px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+            Particles.init({
+                
+                // normal options
+                selector: '.background',
+                maxParticles: 300,
+                connectParticles: true,
+                color: '#48F2E3',
+                speed:1.5,
+                
+                // options for breakpoints
+                responsive: [
+                    {
+                    breakpoint: 768,
+                    options: {
+                        maxParticles: 200,
+                        color: '#48F2E3',
+                        connectParticles: false
+                    }
+                    }, {
+                    breakpoint: 425,
+                    options: {
+                        maxParticles: 100,
+                        connectParticles: true
+                    }
+                    }, {
+                    breakpoint: 320,
+                    options: {
+                        maxParticles: 0 // disables particles.js
+                    }
+                    }
+                ]
+            });
+            };
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <canvas class="background"></canvas>
+                <button onclick="pause()">submit</button>
+        </div>
+        <script src="src/particles.js"></script>
+        <script>
+             function pause() {
+              particles.pauseAnimation();
+              console.log("hi");
+            }
+            function resume() {
+               particles.resumeAnimation();
+             }
+        </script>
+    </body>
+</html>
